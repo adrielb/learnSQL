@@ -193,3 +193,33 @@ DELETE FROM person_pet WHERE pet_id IN (
 );
 SELECT * FROM person_pet;
 
+/* 9: Updating Data */
+SELECT * FROM person;
+SELECT * FROM pet;
+
+UPDATE person 
+SET first_name = "Hilarious Guy"
+WHERE first_name = "Zed";
+
+UPDATE pet 
+SET name = "Facny pants"
+WHERE id = 0;
+
+UPDATE person 
+SET first_name = "Zed"
+WHERE first_name = "Hilarious Guy";
+
+UPDATE pet
+SET name = "DECEASED"
+WHERE dead = 1;
+
+UPDATE person 
+SET age = 10
+WHERE id IN (
+        SELECT person.id
+        FROM person, person_pet, pet
+        WHERE
+        person_pet.person_id = person.id AND
+        person_pet.pet_id = pet.id AND
+        pet.dead = 1
+);
