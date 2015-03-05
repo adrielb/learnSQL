@@ -1,4 +1,10 @@
 
+sqlite3 -header -column -bail test.db
+.schema
+
+.headers ON
+.mode column
+
 
 /* Exercise 0 */
 sqlite3 test.db
@@ -149,3 +155,41 @@ DELETE FROM person_pet
                 SELECT id FROM pet
         );
 SELECT * FROM person_pet;
+
+SELECT * FROM pet;
+SELECT * FROM person_pet;
+SELECT * FROM person;
+
+/* Delete any dead pets owned by you */ 
+DELETE FROM pet WHERE id in (
+        SELECT pet.id 
+        FROM pet, person_pet, person
+        WHERE
+        person_pet.person_id = person.id AND
+        person_pet.pet_id = pet.id AND
+        pet.dead=1 AND
+        person.first_name = 'Me'
+);
+SELECT * FROM pet;
+
+/* Delete people who have dead pets */
+DELETE FROM person WHERE id IN (
+        SELECT person.id
+        FROM pet, person_pet, person
+        WHERE 
+        person_pet.person_id = person.id AND
+        person_pet.pet_id = pet.id AND
+        pet.dead = 1
+);
+SELECT * FROM person;
+
+/* Remove dead pets from link table */
+SELECT * FROM person_pet;
+DELETE FROM person_pet WHERE pet_id IN (
+        SELECT id
+        FROM pet
+        WHERE
+        pet.dead = 1
+);
+SELECT * FROM person_pet;
+
