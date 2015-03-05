@@ -223,3 +223,35 @@ WHERE id IN (
         person_pet.pet_id = pet.id AND
         pet.dead = 1
 );
+
+/* 10: Updating Complex Data */
+SELECT * FROM pet;
+
+UPDATE pet 
+SET name = "Zed's Pet"
+WHERE id IN (
+        SELECT pet.id
+        FROM pet, person_pet, person
+        WHERE 
+        person_pet.person_id = person.id AND
+        person_pet.pet_id = pet.id AND
+        person.first_name = "Zed"
+);
+SELECT * FROM pet;
+
+/* rename dead pets */
+UPDATE pet 
+SET name = "Zed's DEAD Pet"
+WHERE id IN (
+        SELECT pet.id
+        FROM pet, person_pet, person
+        WHERE 
+        person_pet.person_id = person.id AND
+        person_pet.pet_id = pet.id AND
+        pet.dead = 1 AND
+        person.first_name = 'Zed'
+);
+SELECT * FROM pet;
+
+
+
