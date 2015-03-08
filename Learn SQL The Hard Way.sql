@@ -271,3 +271,27 @@ SELECT * FROM pet;
 
 REPLACE INTO pet (id, name, breed, age, dead) VALUES
         (0, 'peeky', "Parrot", 10, 0);
+
+/* 12: Destroying and Altering Tables */
+DROP TABLE IF EXISTS person;
+
+.schema
+
+CREATE TABLE person (
+        id INTEGER PRIMARY KEY,
+        first_name TEXT,
+        last_name TEXT,
+        age INTEGER
+);
+
+ALTER TABLE person RENAME TO peoples;
+
+ALTER TABLE peoples ADD COLUMN hatred INTEGER;
+
+ALTER TABLE peoples RENAME TO person;
+
+.schema person
+
+DROP TABLE person;
+
+

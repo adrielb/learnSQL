@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS pet;
+DROP TABLE IF EXISTS person_pet;
+DROP TABLE IF EXISTS person;
 
 CREATE TABLE pet (
         id INTEGER PRIMARY KEY,
@@ -35,4 +38,5 @@ INSERT INTO person_pet (person_id, pet_id) values (0,0);
 INSERT INTO person_pet (person_id, pet_id) values (0,1);
 INSERT INTO person_pet (person_id, pet_id) values (2,2);
 
-
+ALTER TABLE person ADD COLUMN height INTEGER;
+ALTER TABLE person ADD COLUMN weight INTEGER;
