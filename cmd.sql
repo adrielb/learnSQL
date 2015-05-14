@@ -19,9 +19,7 @@ CREATE TABLE person (
 	id INTEGER PRIMARY KEY,
 	first_name TEXT,
 	last_name TEXT,
-	age INTEGER,
-	address TEXT,
-	ip INTEGER
+	age INTEGER
 );
 
 INSERT INTO person (id, first_name, last_name, age) VALUES
@@ -38,5 +36,3 @@ INSERT INTO person_pet (person_id, pet_id) values (0,0);
 INSERT INTO person_pet (person_id, pet_id) values (0,1);
 INSERT INTO person_pet (person_id, pet_id) values (2,2);
 
-ALTER TABLE person ADD COLUMN height INTEGER;
-ALTER TABLE person ADD COLUMN weight INTEGER;

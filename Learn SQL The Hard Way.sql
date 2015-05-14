@@ -294,4 +294,48 @@ ALTER TABLE peoples RENAME TO person;
 
 DROP TABLE person;
 
+/* 13: Migrating and Evolving Data */
+ALTER TABLE person ADD COLUMN dead INTEGER;
+
+ALTER TABLE person ADD COLUMN phone_number TEXT;
+
+ALTER TABLE person ADD COLUMN salary FLOAT;
+
+ALTER TABLE person ADD COLUMN dob DATETIME;
+ALTER TABLE pet    ADD COLUMN dob DATETIME;
+
+ALTER TABLE person_pet ADD COLUMN purchased_on DATETIME;
+
+ALTER TABLE pet ADD COLUMN parent INTEGER;
+
+.schema 
+
+SELECT * FROM person;
+
+UPDATE person SET 
+dead = 0,
+phone_number = '123-345-6789',
+salary = 10000,
+dob = 'March 20, 2011'
+WHERE id = 0;
+
+UPDATE person SET 
+dead = 0,
+phone_number = '345-312-6789',
+salary = 20000,
+dob = 'April 20, 2011'
+WHERE id = 1;
+
+UPDATE person SET 
+dead = 0,
+phone_number = '890-345-6789',
+salary = 40002,
+dob = 'Jan 20, 2011'
+WHERE id = 2;
+
+SELECT * FROM pet;
+
+UPDATE pet SET dob = 'Feb 3, 2000', parent = 1 WHERE id = 0; 
+UPDATE pet SET dob = 'Feb 3, 2000', parent = NULL WHERE id = 1;
+UPDATE pet SET dob = 'Feb 3, 2000', parent = 1 WHERE id = 2;
 
