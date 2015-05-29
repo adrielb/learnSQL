@@ -1,0 +1,36 @@
+sqlite3 food.db
+.mode column
+.headers on
+.schema
+
+select * from episodes order by name limit 10;
+
+select name from 
+(
+        select name, type_id from 
+        (
+                select * from foods
+        )
+);
+
+select id, name from food_types;
+
+select * from food_types;
+
+select 1 > 2;
+
+select * from foods where name='JujyFruit' and type_id=9;
+
+select id, name from foods where name like 'J%';
+
+select id, name from foods where name like '%ac%P%';
+
+select id, name from foods where name like '%ac%P%' and 
+name not like '%Sch%';
+
+select id, name from foods where name glob 'Pine*';
+
+select * from food_types order by id limit 1 offset 1;
+
+select * from foods where name like 'B%'
+        order by type_id desc, name limit 10;
