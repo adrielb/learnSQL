@@ -34,3 +34,20 @@ select * from food_types order by id limit 1 offset 1;
 
 select * from foods where name like 'B%'
         order by type_id desc, name limit 10;
+
+select upper("hello newman"), length("hello newman"), abs(-12);
+
+select id, upper(name), length(name) from foods where type_id=1 limit 10;
+
+select id, upper(name), length(name) from foods where length(name) < 5 limit 5;
+
+select count(*) from foods where type_id=1;
+
+select count(*) from foods;
+
+select avg(length(name)) from foods;
+
+select avg(length(name)) from foods where type_id=1;
+
+
+

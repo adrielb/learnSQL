@@ -36,4 +36,5 @@ LIMIT count,offset;
 **glob** operates like unix globbing
 
 ## Functions and Aggregations
-
+* upper(), length(), ...
+* aggregates compute a value over a group of rows
