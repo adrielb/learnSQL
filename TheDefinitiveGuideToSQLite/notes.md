@@ -38,3 +38,16 @@ LIMIT count,offset;
 ## Functions and Aggregations
 * upper(), length(), ...
 * aggregates compute a value over a group of rows
+
+## Grouping
+* where -> group by -> select -> result
+* **where** filters from **from**
+* **having**  filters from **group by**
+* where -> group by -> having -> select -> result
+* Do not rely on any SQL statement that doesnt group by nonaggregate fields
+
+## Removing Duplicates
+* **distinct** takes result of select
+
+
+

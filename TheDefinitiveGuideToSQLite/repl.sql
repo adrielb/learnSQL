@@ -49,5 +49,16 @@ select avg(length(name)) from foods;
 
 select avg(length(name)) from foods where type_id=1;
 
+select type_id from foods group by type_id;
 
+select type_id, count(*) from foods group by type_id;
+
+select count(*) from foods where type_id=1;
+select count(*) from foods where type_id=2;
+
+select type_id, count(*) from foods group by type_id having count(*) > 20;
+
+select type_id, count(*) from foods;
+
+select distinct type_id from foods;
 
